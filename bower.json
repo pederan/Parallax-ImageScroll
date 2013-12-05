@@ -1,0 +1,16 @@
+{
+  "name": "ImageScroll",
+  "version": "0.1",
+  "authors": [
+    "Peder Andreas Nielsen <peder1976@gmail.com>"
+  ],
+  "main": "imageScroll",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "demo/js/vendor",
+    "test",
+    "tests"
+  ]
+}
