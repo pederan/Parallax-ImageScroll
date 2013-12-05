@@ -40,15 +40,15 @@ ImageScroll.defaults.coverRatio = 0.5;
 ```
 
 Configurable options are:
-* image: The image to show (default = null)
-* container: The element to which the parallax image(s) will be attached to (default = $('body'))
-* speed: The speed of the parallax effect. A floating number between 0 and 1, where a higher number will move the images faster upwards (default = 0.2)
-* coverRatio: How many percent of the screen each image should cover (default = 0.75)
-* holderMinHeight: The minimum height of the image in pixels (default = 200)
-* extraHeight: Extra height added to the image. Can be useful if you want to show more of the top image (default = 0)
-* mediaWidth: The original width of the image (default = 1600)
-* mediaHeight: The original height of the image (default = 900)
-* fallback: If you do not want the parallax effect, e.g. does not work very well on mobile (default = false)
+* **image**: The image to show (default = null)
+* **container**: The element to which the parallax image(s) will be attached to (default = $('body'))
+* **speed**: The speed of the parallax effect. A floating number between 0 and 1, where a higher number will move the images faster upwards (default = 0.2)
+* **coverRatio**: How many percent of the screen each image should cover (default = 0.75)
+* **holderMinHeight**: The minimum height of the image in pixels (default = 200)
+* **extraHeight**: Extra height added to the image. Can be useful if you want to show more of the top image (default = 0)
+* **mediaWidth**: The original width of the image (default = 1600)
+* **mediaHeight**: The original height of the image (default = 900)
+* **fallback**: If you do not want the parallax effect, e.g. does not work very well on mobile (default = false)
 
 
 ### AMD
