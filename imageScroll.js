@@ -352,8 +352,6 @@
     };
 
     ImageScroll.defaults = defaults;
-    //https://gist.github.com/simonsmith/4353587
-    //https://github.com/umdjs/umd/blob/master/jqueryPlugin.js
     $.fn.imageScroll = function (options) {
         return this.each(function () {
             new ImageScroll(this, options).init();
