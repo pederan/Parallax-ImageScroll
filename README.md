@@ -1,7 +1,8 @@
 # Parallax ImageScroll - jQuery plugin
 
 JQuery and amd compatible plugin to create a parallax effect with images. Heavily inspired by the [spotify.com](https://www.spotify.com) website.
-Really simple to use with some options to tweek. The plugin uses css3 transform for animation where supported and falls back to top left positioning for ancient browsers.
+
+The plugin is really simple to use with some options to tweek. It makes use of css3 transform for animation where supported and falls back to top left positioning for ancient browsers.
 
 [Check out the live demo](http://codepen.io/pederan/full/cEvDh).
 
