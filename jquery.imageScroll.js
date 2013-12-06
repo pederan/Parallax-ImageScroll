@@ -29,7 +29,8 @@
             extraHeight: 0,
             mediaWidth: 1600,
             mediaHeight: 900,
-            fallback: false
+            parallax: true,
+            touch: false
         },
         ImageScrollModernizr = {},
         docElement = document.documentElement,
@@ -195,7 +196,9 @@
                     throw new Error('You need to provide either a data-img attr or an image option');
                 }
 
-                if(this.settings.fallback === false) {
+                if(this.settings.touch === true) {
+                    this.$scrollingElement.css({maxWidth:'100%'}).prependTo(this.$imageHolder);
+                } else if(this.settings.parallax === true) {
                     this.$scrollerHolder = $('<div/>', {
                         html: this.$imageHolder.html()
                     }).css(this._getCSSObject({
@@ -216,10 +219,12 @@
                     this.$scrollingElement.css({position: 'relative', overflow: 'hidden'}).prependTo(this.$imageHolder);
                 }
 
-                this._adjustImgHolderHeights();
-                if(this.settings.fallback === false) {this._updatePositions();}
-                else {this._updateFallbackPositions();}
-                this._bindEvents();
+                if(this.settings.touch === false) {
+                    this._adjustImgHolderHeights();
+                    if(this.settings.parallax === true) {this._updatePositions();}
+                    else {this._updateFallbackPositions();}
+                    this._bindEvents();
+                }
             },
             _adjustImgHolderHeights: function () {
                 var winHeight = $win.height(),
@@ -283,13 +288,13 @@
                 var self = this;
                 $win.on('resize', function (evt) {
                     self._adjustImgHolderHeights();
-                    if(self.settings.fallback === false) {
+                    if(self.settings.parallax === true) {
                         self._requestTick();
                     } else {
                         self._updateFallbackPositions();
                     }
                 });
-                if(this.settings.fallback === false) {
+                if(this.settings.parallax === true) {
                     $win.on('scroll', function (evt) {
                         self.scrollingState.holderDistanceFromTop = self.$imageHolder.offset().top - $win.scrollTop();
                         self._requestTick();
