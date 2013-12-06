@@ -5,6 +5,7 @@ JQuery and amd compatible plugin to create a parallax effect with images. Heavil
 The plugin is really simple to use with some options to tweek. It makes use of css3 transform for animation where supported and falls back to top left positioning for ancient browsers.
 
 [Check out the live demo](http://codepen.io/pederan/full/cEvDh).
+
 [Same demo, but with fallback for touch devices (no parallax effect and smaller image sizes)](http://codepen.io/pederan/full/Hheuy). See Mobile section for details.
 
 ### Markup
@@ -55,9 +56,9 @@ Configurable options are:
 * **touch**: Presents a mobile/tablet friendy version, no parallax effect and smaller images (should be used with a mobile/tablet optimized image) (default = false)
 
 
-### Mobile
+### Touch
 
-The effect is not very smooth on a mobile device. You could therefore present the user with a mobile version, which displays the images with no parallax effect. You can do so checking for touch (e.g. with Modernizr) and set dynamic options to adjust to this.
+The effect is not very smooth on a touch device. You could therefore present the user with a fallback version, which displays the images with no parallax effect. You can do so checking for touch (e.g. with Modernizr) and set dynamic options to adjust to this.
 ```javascript
 var touch = Modernizr.touch;
 $('.img-holder').imageScroll({
