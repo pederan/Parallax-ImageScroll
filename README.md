@@ -5,6 +5,7 @@ JQuery and amd compatible plugin to create a parallax effect with images. Heavil
 The plugin is really simple to use with some options to tweek. It makes use of css3 transform for animation where supported and falls back to top left positioning for ancient browsers.
 
 [Check out the live demo](http://codepen.io/pederan/full/cEvDh).
+[Check out the live demo with fallback (no parallax effect) for touch devices](http://codepen.io/pederan/full/cEvDh).
 
 ### Markup
 
@@ -42,6 +43,7 @@ ImageScroll.defaults.coverRatio = 0.5;
 
 Configurable options are:
 * **image**: The image to show (default = null)
+* **imageAttribute**: The data attribute name for images. Uses the value of this attribute to load the image (default = 'image')
 * **container**: The element to which the parallax image(s) will be attached to (default = $('body'))
 * **speed**: The speed of the parallax effect. A floating number between 0 and 1, where a higher number will move the images faster upwards (default = 0.2)
 * **coverRatio**: How many percent of the screen each image should cover (default = 0.75)
@@ -51,6 +53,17 @@ Configurable options are:
 * **mediaHeight**: The original height of the image (default = 900)
 * **fallback**: If you do not want the parallax effect, e.g. does not work very well on mobile (default = false)
 
+
+### Mobile
+
+The effect is not very smooth on a mobile device. You could therefore present the user with a mobile version, which displays the images with no parallax effect. You can do so checking for touch (e.g. with Modernizr) and set dynamic options to adjust to this.
+```javascript
+var touch = Modernizr.touch;
+$('.img-holder').imageScroll({
+    imageAttribute: (touch === true) ? 'image-mobile' : 'image',
+    fallback: touch
+});
+```
 
 ### AMD
 
@@ -65,7 +78,7 @@ require(['jquery.imageScroll'], function (ImageScroll) {
 
 ### Requirements
 
-jQuery version 1.8.3 or higher
+jQuery version 1.8.0 or higher
 
 ### Limitations
 

@@ -1,10 +1,10 @@
 {
-  "name": "ImageScroll",
+  "name": "Parallax-ImageScroll",
   "version": "0.1",
   "authors": [
     "Peder Andreas Nielsen <peder1976@gmail.com>"
   ],
-  "main": "imageScroll",
+  "main": "jquery.imageScroll",
   "license": "MIT",
   "ignore": [
     "**/.*",
@@ -12,5 +12,8 @@
     "demo/js/vendor",
     "test",
     "tests"
-  ]
+  ],
+  "dependencies": {
+    "jquery": "latest"
+  }
 }

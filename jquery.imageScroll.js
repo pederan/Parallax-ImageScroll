@@ -21,6 +21,7 @@
     var ImageScroll,
         defaults = {
             image: null,
+            imageAttribute: 'image',
             container: $('body'),
             speed: 0.2,
             coverRatio: 0.75,
@@ -184,7 +185,7 @@
                 this.mediaWidth = this.$imageHolder.data('width') || this.settings.mediaWidth;
                 this.mediaHeight = this.$imageHolder.data('height') || this.settings.mediaHeight;
                 this.extraHeight = this.$imageHolder.data('extra-height') || this.settings.extraHeight;
-                this.image = this.$imageHolder.data('image') || this.settings.image;
+                this.image = this.$imageHolder.data(this.settings.imageAttribute) || this.settings.image;
                 this.ticking = false;
                 if (this.image) {
                     this.$scrollingElement = $('<img/>', {
@@ -192,7 +193,6 @@
                     });
                 } else {
                     throw new Error('You need to provide either a data-img attr or an image option');
-                    return false;
                 }
 
                 if(this.settings.fallback === false) {
@@ -332,6 +332,7 @@
                 this.ticking = false;
             },
             _updateFallbackPositions: function() {
+                this.$scrollerHolder.css({width: '100%'});
                 this.$scrollingElement.css({
                     top: this.scrollingState.imgTopPos,
                     left: this.scrollingState.imgLeftPos
@@ -348,7 +349,7 @@
                 }
                 return options;
             }
-        }
+        };
     };
 
     ImageScroll.defaults = defaults;

@@ -12,10 +12,11 @@
         body { margin: 0; padding: 0;}
         section { padding: 5% 15%; margin: 0 auto;}
     </style>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/modernizr/2.7.1/modernizr.min.js"></script>
 </head>
 <body>
 
-    <div class="img-holder" data-image="img/autumn_season-1600x900.jpg" data-width="1600" data-height="900"></div>
+    <div class="img-holder" data-image="img/autumn_season-1600x900.jpg" data-image-mobile="img/autumn_season-800x450.jpg" data-width="1600" data-height="900"></div>
 
     <section>
         <p>Pid ultrices mid ultrices aliquet porttitor. Tristique est turpis lacus. Nec mid, nisi eu magnis? Phasellus? Facilisis sed urna integer in. Pulvinar! Lacus enim dapibus facilisis, sociis ut turpis habitasse nunc a egestas placerat in mattis! Turpis sed? Sit pid magna sociis vel a porttitor, enim ac! Porttitor, lorem odio a tincidunt urna scelerisque, augue. Cursus, et penatibus, ridiculus tortor.</p>
@@ -23,7 +24,7 @@
         <p>Urna sed lorem a mus duis cras mattis turpis arcu facilisis mattis tincidunt sagittis lorem, elit elit porttitor turpis? Risus purus! Mus urna tortor adipiscing dictumst, purus, sit turpis, amet mid nisi non hac in proin nunc turpis velit non mauris turpis natoque, aliquam, ac dictumst parturient lundium pulvinar est integer augue scelerisque scelerisque ultrices nascetur amet odio? Hac.</p>
     </section>
 
-    <div class="img-holder" data-image="img/japan_digital_nature-1680x1050.jpg" data-width="1680" data-height="1050"></div>
+    <div class="img-holder" data-image="img/japan_digital_nature-1680x1050.jpg" data-image-mobile="img/japan_digital_nature-800x500.jpg" data-width="1680" data-height="1050"></div>
 
     <section>
         <p>Pid ultrices mid ultrices aliquet porttitor. Tristique est turpis lacus. Nec mid, nisi eu magnis? Phasellus? Facilisis sed urna integer in. Pulvinar! Lacus enim dapibus facilisis, sociis ut turpis habitasse nunc a egestas placerat in mattis! Turpis sed? Sit pid magna sociis vel a porttitor, enim ac! Porttitor, lorem odio a tincidunt urna scelerisque, augue. Cursus, et penatibus, ridiculus tortor.</p>
@@ -31,7 +32,7 @@
         <p>Urna sed lorem a mus duis cras mattis turpis arcu facilisis mattis tincidunt sagittis lorem, elit elit porttitor turpis? Risus purus! Mus urna tortor adipiscing dictumst, purus, sit turpis, amet mid nisi non hac in proin nunc turpis velit non mauris turpis natoque, aliquam, ac dictumst parturient lundium pulvinar est integer augue scelerisque scelerisque ultrices nascetur amet odio? Hac.</p>
     </section>
 
-    <div class="img-holder" data-image="img/german_landscapes-1600x900.jpg"></div>
+    <div class="img-holder" data-image="img/german_landscapes-1600x900.jpg" data-image-mobile="img/german_landscapes-800x450.jpg"></div>
 
     <section>
         <p>Pid ultrices mid ultrices aliquet porttitor. Tristique est turpis lacus. Nec mid, nisi eu magnis? Phasellus? Facilisis sed urna integer in. Pulvinar! Lacus enim dapibus facilisis, sociis ut turpis habitasse nunc a egestas placerat in mattis! Turpis sed? Sit pid magna sociis vel a porttitor, enim ac! Porttitor, lorem odio a tincidunt urna scelerisque, augue. Cursus, et penatibus, ridiculus tortor.</p>
@@ -42,16 +43,10 @@
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 <script src="../jquery.imageScroll.js"></script>
     <script>
+        var touch = Modernizr.touch;
         $('.img-holder').imageScroll({
-//            image: null,
-//            container: $('body'),
-//            speed: 0.2,
-//            coverRatio: 0.75,
-//            holderMinHeight: 200,
-//            extraHeight: 0,
-//            mediaWidth: 1600,
-//            mediaHeight: 900,
-//            fallback: false
+            imageAttribute: (touch === true) ? 'image-mobile' : 'image',
+            fallback: touch
         });
     </script>
 </body>
