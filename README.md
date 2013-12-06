@@ -6,7 +6,7 @@ The plugin is really simple to use with some options to tweek. It makes use of c
 
 [Check out the live demo](http://codepen.io/pederan/full/cEvDh).
 
-[Same demo, but with fallback for touch devices (no parallax effect and smaller image sizes)](http://codepen.io/pederan/full/Hheuy). See Mobile section for details.
+[Same demo, but with fallback for touch devices (no parallax effect and smaller image sizes)](http://codepen.io/pederan/full/Hheuy). (See Touch section for details.)
 
 ### Markup
 
