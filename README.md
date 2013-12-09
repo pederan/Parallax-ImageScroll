@@ -67,7 +67,7 @@ Configurable options are:
 
 ### Touch
 
-The effect is not very smooth on a touch device. You could therefore present the user with a fallback version, which displays the images with no parallax effect. You can do so checking for touch (e.g. with Modernizr) and set dynamic options to adjust to this.
+The effect is not very smooth on a touch device. You could therefore present the user with a fallback version, which displays the images with no parallax effect. You can do so by checking for touch (e.g. with Modernizr) and set dynamic options to adjust to this.
 ```javascript
 var touch = Modernizr.touch;
 $('.img-holder').imageScroll({
@@ -82,7 +82,7 @@ jQuery version 1.8.0 or higher
 
 ### Limitations
 
-Does not work very well on mobile or IE <= 9. Solution: check for touch and set touch option to true.
+Does not work very well on mobile or IE <= 9. You can then present a fallback solution by disabling parallax for ancient desktop browser (set parallax option to false) and present touch optimized images for touch devices (set touch option to true).
 
 ### MIT
 
