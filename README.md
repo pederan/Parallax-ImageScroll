@@ -2,11 +2,9 @@
 
 JQuery and amd compatible plugin to create a parallax effect with images. Heavily inspired by the [spotify.com](https://www.spotify.com) website.
 
-The plugin is really simple to use with some options to tweek. It makes use of css3 transform for animation where supported and falls back to top left positioning for ancient browsers.
+The plugin is really simple to use with some options to tweek. It makes use of css3 transform for animation where supported and falls back to top and left positioning for ancient browsers.
 
-[Check out the live demo](http://codepen.io/pederan/full/cEvDh).
-
-[Same demo, but with fallback for touch devices (no parallax effect and smaller image sizes)](http://codepen.io/pederan/full/Hheuy). (See Touch section for details.)
+[Check out the live demo](http://codepen.io/pederan/full/Hheuy). (No parallax effect and smaller image sizes for touch devices, see Touch section for details.)
 
 ### Markup
 
@@ -53,7 +51,7 @@ Configurable options are:
 * **mediaWidth**: The original width of the image (default = 1600)
 * **mediaHeight**: The original height of the image (default = 900)
 * **parallax**: Whether or not you want the parallax effect, e.g. does not work very well in ancient browsers (default = true)
-* **touch**: Presents a mobile/tablet friendy version, no parallax effect and smaller images (should be used with a mobile/tablet optimized image) (default = false)
+* **touch**: Presents a mobile/tablet friendy version, no parallax effect and smaller images (should be used with a mobile/tablet optimized images) (default = false)
 
 
 ### Touch
