@@ -20,9 +20,20 @@ You can use html5 data attributes for all the options listed below or set the op
 
 ### Initialization
 
-To initialize the plugin apply them to the elements you want
+To initialize the plugin, apply them to the elements you want
 ```javascript
 $('.img-holder').imageScroll();
+```
+
+### AMD
+
+The plugin is AMD compatible. To use with e.g. RequireJS, you can do this. See demo files for example.
+```javascript
+require(['jquery.imageScroll'], function (ImageScroll) {
+    $('.img-holder').each(function () {
+        new ImageScroll(this).init();
+    });
+});
 ```
 
 ### Options
@@ -30,8 +41,8 @@ $('.img-holder').imageScroll();
 You can configure the default options, by passing an option object to the plugin, like this
 ```javascript
 $('.img-holder').imageScroll({
-        coverRatio: 0.5
-    });
+    coverRatio: 0.5
+});
 ```
 
 or set the options globally (only works when using with amd)
@@ -62,17 +73,6 @@ var touch = Modernizr.touch;
 $('.img-holder').imageScroll({
     imageAttribute: (touch === true) ? 'image-mobile' : 'image',
     touch: touch
-});
-```
-
-### AMD
-
-The plugin is AMD compatible. To use with e.g. RequireJS, you can do this. See demo files for example.
-```javascript
-require(['jquery.imageScroll'], function (ImageScroll) {
-    $('.img-holder').each(function () {
-        new ImageScroll(this).init();
-    });
 });
 ```
 
