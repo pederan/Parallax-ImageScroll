@@ -38,15 +38,19 @@ require(['jquery.imageScroll'], function (ImageScroll) {
 
 ### Options
 
-You can configure the default options, by passing an option object to the plugin, like this
+You can configure the default options, by passing an option object to the plugin
 ```javascript
 $('.img-holder').imageScroll({
     coverRatio: 0.5
 });
 ```
 
-or set the options globally (only works when using with amd)
+set the options via data attributes, data-*optionname* (available options: image, width (mediaWidth), height (mediaHeight), cover-ratio (coverRatio), extra-height (extra-height)
+```html
+<div class="img-holder" data-image="anImage.jpg" data-cover-ratio="0.5"></div>
+```
 
+or set the options globally (only works when using with amd)
 ```javascript
 ImageScroll.defaults.coverRatio = 0.5;
 ```

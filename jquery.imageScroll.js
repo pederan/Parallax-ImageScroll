@@ -183,10 +183,12 @@
                 //this.imageHolder = imageHolder;
                 this.$imageHolder = $(imageHolder);
                 this.settings = $.extend({}, defaults, options);
+                this.image = this.$imageHolder.data(this.settings.imageAttribute) || this.settings.image;
                 this.mediaWidth = this.$imageHolder.data('width') || this.settings.mediaWidth;
                 this.mediaHeight = this.$imageHolder.data('height') || this.settings.mediaHeight;
+                this.coverRatio = this.$imageHolder.data('cover-ratio') || this.settings.coverRatio;
                 this.extraHeight = this.$imageHolder.data('extra-height') || this.settings.extraHeight;
-                this.image = this.$imageHolder.data(this.settings.imageAttribute) || this.settings.image;
+
                 this.ticking = false;
                 if (this.image) {
                     this.$scrollingElement = $('<img/>', {
@@ -203,12 +205,12 @@
                         html: this.$imageHolder.html()
                     }).css(this._getCSSObject({
                             transform: transformProperty,
+                            top: 0,
+                            left: 0,
                             x: 0,
                             y: 0,
                             visibility: 'hidden',
                             position: 'fixed',
-                            top: 0,
-                            left: 0,
                             overflow: 'hidden'
                         })).prependTo(this.settings.container);
 
@@ -229,7 +231,7 @@
             _adjustImgHolderHeights: function () {
                 var winHeight = $win.height(),
                     winWidth = $win.width(),
-                    imgHolderHeight = this.settings.coverRatio * winHeight,
+                    imgHolderHeight = this.coverRatio * winHeight,
                     imgTopPos,
                     imgLeftPos,
                     fromY,
