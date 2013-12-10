@@ -215,7 +215,7 @@
                         })).prependTo(this.settings.container);
 
                     this.$imageHolder.css('visibility', 'hidden').empty();
-                    this.$scrollingElement.css({visibility: 'hidden', maxWidth: 'none'}).prependTo(this.$scrollerHolder);
+                    this.$scrollingElement.css({position: 'absolute', visibility: 'hidden', maxWidth: 'none'}).prependTo(this.$scrollerHolder);
                 } else {
                     this.$scrollerHolder = this.$imageHolder.css({overflow: 'hidden'});
                     this.$scrollingElement.css({position: 'relative', overflow: 'hidden'}).prependTo(this.$imageHolder);
