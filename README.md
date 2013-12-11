@@ -8,12 +8,12 @@ The plugin is really simple to use with some options to tweek. It makes use of c
 
 ### Markup
 
-Markup can consist of as many image elements as you want, but you should seperate them with a content block, e.g. a section.
+Markup can consist of as many image elements as you want, but you should separate them with a content block, e.g. a section.
 
 ```html
 <div class="img-holder" data-image="anImage.jpg" data-width="1600" data-height="900"></div>
 <section><p>Content that "slides" on top of the images</p></section>
-<div class="img-holder" data-image="anotherImage.jpg" data-width="1600" data-height="900"></div>
+<div class="img-holder" data-image="anotherImage.jpg" data-width="1600" data-height="900">[optional content to be displayed on top of the images]</div>
 ```
 
 You can use html5 data attributes for all the options listed below or set the options in javascript
