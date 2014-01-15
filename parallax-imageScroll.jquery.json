@@ -1,0 +1,30 @@
+{
+    "name": "parallax-imageScroll",
+    "version": "0.1.0",
+    "title": "Parallax ImageScroll",
+    "author": {
+        "name": "Peder Andreas Nielsen",
+        "email": "peder1976@gmail.com"
+    },
+    "licenses": [
+        {
+            "type": "MIT",
+            "url": "http://opensource.org/licenses/MIT"
+        }
+    ],
+    "dependencies": {
+        "jquery": ">=1.8.0"
+    },
+    "description": "Parallax ImageScroll is a simple and easy jQuery plugin for creating image parallax effects when scrolling the page, inspired by Spotify.com.",
+    "keywords": [
+        "parallax",
+        "scroll",
+        "effect",
+        "animation",
+        "css3"
+    ],
+    "homepage": "https://github.com/pederan/Parallax-ImageScroll",
+    "docs": "https://github.com/pederan/Parallax-ImageScroll",
+    "demo": "http://codepen.io/pederan/full/Hheuy",
+    "bugs": "https://github.com/pederan/Parallax-ImageScroll/issues"
+}

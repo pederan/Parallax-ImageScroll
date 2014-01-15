@@ -13,7 +13,7 @@ require.config({
 require(['jquery.imageScroll'], function (ImageScroll) {
     ImageScroll.defaults.speed = .2;
     $('.img-holder').each(function () {
-        new ImageScroll(this).init();
+        new ImageScroll(this, {}).init();
     });
     //or
     //$('.img-holder').imageScroll();
