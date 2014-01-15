@@ -1,7 +1,7 @@
 /**
  * Author: Peder A. Nielsen
  * Created date: 04.12.13
- * Updated date: 05.12.13
+ * Updated date: 15.01.14
  * Version: 0.1
  * Company: Making Waves
  * Licensed under the MIT license
@@ -242,7 +242,8 @@
                     imgHeight,
                     fakedImgHeight,
                     imageDiff,
-                    adjustedYDiff;
+                    adjustedYDiff,
+                    holderToWinDiff;
 
                 imgHolderHeight = (this.settings.holderMinHeight < imgHolderHeight ? Math.floor(imgHolderHeight) : this.settings.holderMinHeight) + this.extraHeight;
                 fakedImgHeight = Math.floor(winHeight - (winHeight - imgHolderHeight) * this.settings.speed);
@@ -257,8 +258,9 @@
 
                 imageDiff = (fakedImgHeight - imgHolderHeight) / 2;
                 adjustedYDiff = (imgHeight - fakedImgHeight) / 2;
-                fromY = -((winHeight / ((winHeight - imgHolderHeight) / 2)) * imageDiff) - adjustedYDiff;
-                toY = ((imgHolderHeight / ((winHeight - imgHolderHeight) / 2)) * imageDiff) - adjustedYDiff;
+                holderToWinDiff = (winHeight - imgHolderHeight) / 2;
+                fromY = -((winHeight / holderToWinDiff) * imageDiff) - adjustedYDiff;
+                toY = ((imgHolderHeight / holderToWinDiff) * imageDiff) - adjustedYDiff;
                 imgScrollingDistance = toY - fromY;
                 travelDistance = winHeight + imgHolderHeight;
                 imgTopPos = -(imageDiff + adjustedYDiff);
