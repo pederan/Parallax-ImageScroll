@@ -2,7 +2,7 @@
  * Author: Peder A. Nielsen
  * Created date: 04.12.13
  * Updated date: 15.01.14
- * Version: 0.1
+ * Version: 0.1.1
  * Company: Making Waves
  * Licensed under the MIT license
  */
