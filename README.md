@@ -80,6 +80,13 @@ $('.img-holder').imageScroll({
 });
 ```
 
+### Installation
+
+Install using bower
+```sh
+bower install Parallax-ImageScroll
+```
+
 ### Requirements
 
 jQuery version 1.8.0 or higher
