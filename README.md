@@ -11,16 +11,16 @@ The plugin is really simple to use with some options to tweek. It makes use of c
 Markup can consist of as many image elements as you want, but you should separate them with a content block, e.g. a section.
 
 ```html
-<div class="img-holder" data-image="anImage.jpg" data-width="1600" data-height="900"></div>
+<div class="img-holder" data-image="anImage.jpg"></div>
 <section><p>Content that "slides" on top of the images</p></section>
-<div class="img-holder" data-image="anotherImage.jpg" data-width="1600" data-height="900">[optional content to be displayed on top of the images]</div>
+<div class="img-holder" data-image="anotherImage.jpg">[optional content to be displayed on top of the images]</div>
 ```
 
-You can use html5 data attributes for all the options listed below or set the options in javascript
+You can set parameters using html5 data attributes or with javascript, see options section for details.
 
 ### Initialization
 
-To initialize the plugin, apply them to the elements you want
+To initialize the plugin, call the imageScroll method on your image elements
 ```javascript
 $('.img-holder').imageScroll();
 ```
@@ -45,7 +45,7 @@ $('.img-holder').imageScroll({
 });
 ```
 
-set the options via data attributes, data-*optionname* (available options: image, width (mediaWidth), height (mediaHeight), cover-ratio (coverRatio), extra-height (extra-height)
+or set the options via data attributes, data-*optionname* (available options: image, width (mediaWidth), height (mediaHeight), cover-ratio (coverRatio), extra-height (extra-height)
 ```html
 <div class="img-holder" data-image="anImage.jpg" data-cover-ratio="0.5"></div>
 ```
@@ -56,7 +56,7 @@ ImageScroll.defaults.coverRatio = 0.5;
 ```
 
 Configurable options are:
-* **image**: The image to show (default = null)
+* **image**: The image to show (**required**, default = null)
 * **imageAttribute**: The data attribute name for images. Uses the value of this attribute to load the image (default = 'image')
 * **container**: The element to which the parallax image(s) will be attached to (default = $('body'))
 * **speed**: The speed of the parallax effect. A floating number between 0 and 1, where a higher number will move the images faster upwards (default = 0.2)
@@ -90,6 +90,15 @@ bower install Parallax-ImageScroll
 ### Requirements
 
 jQuery version 1.8.0 or higher
+
+### Notes
+
+If you add content on top of the parallaxed image, make sure to apply a higher z-depth for the content (applies for browsers that support 3d transforms).
+Example:
+
+```html
+<div class="img-holder" data-image="anotherImage.jpg"><p style="-webkit-transform: translateZ(1px)">Hello world!</p></div>
+```
 
 ### Limitations
 
