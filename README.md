@@ -45,7 +45,7 @@ $('.img-holder').imageScroll({
 });
 ```
 
-or set the options via data attributes, data-*optionname* (available options: image, width (mediaWidth), height (mediaHeight), cover-ratio (coverRatio), extra-height (extra-height)
+or set the options via data attributes, data-*optionname* (available options: image, width (mediaWidth), height (mediaHeight), cover-ratio (coverRatio), extra-height (extraHeight)
 ```html
 <div class="img-holder" data-image="anImage.jpg" data-cover-ratio="0.5"></div>
 ```
@@ -56,17 +56,18 @@ ImageScroll.defaults.coverRatio = 0.5;
 ```
 
 Configurable options are:
-* **image**: The image to show (**required**, default = null)
-* **imageAttribute**: The data attribute name for images. Uses the value of this attribute to load the image (default = 'image')
-* **container**: The element to which the parallax image(s) will be attached to (default = $('body'))
-* **speed**: The speed of the parallax effect. A floating number between 0 and 1, where a higher number will move the images faster upwards (default = 0.2)
-* **coverRatio**: How many percent of the screen each image should cover (default = 0.75)
-* **holderMinHeight**: The minimum height of the image in pixels (default = 200)
-* **extraHeight**: Extra height added to the image. Can be useful if you want to show more of the top image (default = 0)
-* **mediaWidth**: The original width of the image (default = 1600)
-* **mediaHeight**: The original height of the image (default = 900)
-* **parallax**: Whether or not you want the parallax effect, e.g. does not work very well in ancient browsers (default = true)
-* **touch**: Presents a mobile/tablet friendy version, no parallax effect and smaller images (should be used with a mobile/tablet optimized images) (default = false)
+* ```image: null``` (**required**) The image to show
+* ```imageAttribute: 'image'```: The data attribute name for images. Uses the value of this attribute to load the image
+* ```container: $('body')``` The element to which the parallax image(s) will be attached to
+* ```speed: 0.2``` The speed of the parallax effect. A floating number between 0 and 1, where a higher number will move the images faster upwards
+* ```coverRatio: 0.75 //75%``` How many percent of the screen each image should cover
+* ```holderClass: 'imageHolder'``` Class added to the image holder(s)
+* ```holderMinHeight: 200``` The minimum height of the image in pixels
+* ```extraHeight: 0``` Extra height added to the image. Can be useful if you want to show more of the top image
+* ```mediaWidth: 1600``` The original width of the image
+* ```mediaHeight: 900``` The original height of the image
+* ```parallax: true``` Whether or not you want the parallax effect, e.g. does not work very well in ancient browsers
+* ```touch: false``` Presents a mobile/tablet friendy version, no parallax effect and smaller images (should be used with a mobile/tablet optimized images)
 
 
 ### Touch

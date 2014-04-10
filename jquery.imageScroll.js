@@ -1,8 +1,9 @@
 /**
+ * Parallax ImageScroll - jQuery plugin
  * Author: Peder A. Nielsen
  * Created date: 04.12.13
- * Updated date: 15.01.14
- * Version: 0.1.1
+ * Updated date: 10.04.14
+ * Version: 0.1.2
  * Company: Making Waves
  * Licensed under the MIT license
  */
@@ -22,6 +23,7 @@
         defaults = {
             image: null,
             imageAttribute: 'image',
+            holderClass: 'imageHolder',
             container: $('body'),
             speed: 0.2,
             coverRatio: 0.75,
@@ -212,7 +214,7 @@
                             visibility: 'hidden',
                             position: 'fixed',
                             overflow: 'hidden'
-                        })).prependTo(this.settings.container);
+                        })).addClass(this.settings.holderClass).prependTo(this.settings.container);
 
                     this.$imageHolder.css('visibility', 'hidden').empty();
                     this.$scrollingElement.css({position: 'absolute', visibility: 'hidden', maxWidth: 'none'}).prependTo(this.$scrollerHolder);
