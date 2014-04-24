@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<!--[if lt IE 9 ]>     <html class="no-js lt-ie10 lt-ie9"> <![endif]-->
+<!--[if IE 9 ]>        <html class="no-js ie9 lt-ie10"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--> <html class="no-js"> <!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Parallax-ImageScroll demo</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+    <style>
+        body { margin: 0; padding: 0;}
+        section { padding: 5% 15%; margin: 0 auto;}
+        .left-col { float: left; position: relative; z-index: 1; width: 10%; min-height: 1000px; background-color: #666; }
+        .right-col { overflow: hidden; }
+    </style>
+</head>
+<body>
+<!--
+This example shows how to use the plugin if you wish to attach the images to a div which is not at x: 0 and thus is full screen (x position > 0). Make sure to set overflow hidden to the container and to use the mobile-fallback example to support touch devices.
+-->
+    <div class="left-col"></div>
+    <div class="right-col">
+        <div class="img-holder" data-image="img/autumn_season-1600x900.jpg" data-width="1600" data-height="900" data-extra-height="50"></div>
+
+        <section>
+            <p>Pid ultrices mid ultrices aliquet porttitor. Tristique est turpis lacus. Nec mid, nisi eu magnis? Phasellus? Facilisis sed urna integer in. Pulvinar! Lacus enim dapibus facilisis, sociis ut turpis habitasse nunc a egestas placerat in mattis! Turpis sed? Sit pid magna sociis vel a porttitor, enim ac! Porttitor, lorem odio a tincidunt urna scelerisque, augue. Cursus, et penatibus, ridiculus tortor.</p>
+
+            <p>Urna sed lorem a mus duis cras mattis turpis arcu facilisis mattis tincidunt sagittis lorem, elit elit porttitor turpis? Risus purus! Mus urna tortor adipiscing dictumst, purus, sit turpis, amet mid nisi non hac in proin nunc turpis velit non mauris turpis natoque, aliquam, ac dictumst parturient lundium pulvinar est integer augue scelerisque scelerisque ultrices nascetur amet odio? Hac.</p>
+        </section>
+
+        <div class="img-holder" data-image="img/japan_digital_nature-1680x1050.jpg" data-cover-ratio="0.75" data-width="1680" data-height="1050"></div>
+
+        <section>
+            <p>Pid ultrices mid ultrices aliquet porttitor. Tristique est turpis lacus. Nec mid, nisi eu magnis? Phasellus? Facilisis sed urna integer in. Pulvinar! Lacus enim dapibus facilisis, sociis ut turpis habitasse nunc a egestas placerat in mattis! Turpis sed? Sit pid magna sociis vel a porttitor, enim ac! Porttitor, lorem odio a tincidunt urna scelerisque, augue. Cursus, et penatibus, ridiculus tortor.</p>
+
+            <p>Urna sed lorem a mus duis cras mattis turpis arcu facilisis mattis tincidunt sagittis lorem, elit elit porttitor turpis? Risus purus! Mus urna tortor adipiscing dictumst, purus, sit turpis, amet mid nisi non hac in proin nunc turpis velit non mauris turpis natoque, aliquam, ac dictumst parturient lundium pulvinar est integer augue scelerisque scelerisque ultrices nascetur amet odio? Hac.</p>
+        </section>
+
+        <div class="img-holder" data-image="img/german_landscapes-1600x900.jpg"></div>
+
+        <section>
+            <p>Pid ultrices mid ultrices aliquet porttitor. Tristique est turpis lacus. Nec mid, nisi eu magnis? Phasellus? Facilisis sed urna integer in. Pulvinar! Lacus enim dapibus facilisis, sociis ut turpis habitasse nunc a egestas placerat in mattis! Turpis sed? Sit pid magna sociis vel a porttitor, enim ac! Porttitor, lorem odio a tincidunt urna scelerisque, augue. Cursus, et penatibus, ridiculus tortor.</p>
+
+            <p>Urna sed lorem a mus duis cras mattis turpis arcu facilisis mattis tincidunt sagittis lorem, elit elit porttitor turpis? Risus purus! Mus urna tortor adipiscing dictumst, purus, sit turpis, amet mid nisi non hac in proin nunc turpis velit non mauris turpis natoque, aliquam, ac dictumst parturient lundium pulvinar est integer augue scelerisque scelerisque ultrices nascetur amet odio? Hac.</p>
+        </section>
+    </div>
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script src="../jquery.imageScroll.js"></script>
+    <script>
+        $('.img-holder').imageScroll({
+//            image: null,
+//            imageAttribute: 'image',
+            container: $('.right-col')
+//            speed: 0.2,
+//            coverRatio: 0.75,
+//            holderClass: 'imageHolder',
+//            holderMinHeight: 200,
+//            extraHeight: 0,
+//            mediaWidth: 1600,
+//            mediaHeight: 900,
+//            parallax: true,
+//            touch: false
+        });
+    </script>
+</body>
+</html>

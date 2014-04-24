@@ -2,7 +2,7 @@
  * Parallax ImageScroll - jQuery plugin
  * Author: Peder A. Nielsen
  * Created date: 04.12.13
- * Updated date: 10.04.14
+ * Updated date: 24.04.14
  * Version: 0.1.2
  * Company: Making Waves
  * Licensed under the MIT license
@@ -182,7 +182,6 @@
     ImageScroll = function (imageHolder, options) {
         return {
             init: function () {
-                //this.imageHolder = imageHolder;
                 this.$imageHolder = $(imageHolder);
                 this.settings = $.extend({}, defaults, options);
                 this.image = this.$imageHolder.data(this.settings.imageAttribute) || this.settings.image;
@@ -190,8 +189,8 @@
                 this.mediaHeight = this.$imageHolder.data('height') || this.settings.mediaHeight;
                 this.coverRatio = this.$imageHolder.data('cover-ratio') || this.settings.coverRatio;
                 this.extraHeight = this.$imageHolder.data('extra-height') || this.settings.extraHeight;
-
                 this.ticking = false;
+
                 if (this.image) {
                     this.$scrollingElement = $('<img/>', {
                         src: this.image
@@ -200,22 +199,17 @@
                     throw new Error('You need to provide either a data-img attr or an image option');
                 }
 
-                if(this.settings.touch === true) {
-                    this.$scrollingElement.css({maxWidth:'100%'}).prependTo(this.$imageHolder);
-                } else if(this.settings.parallax === true) {
+                if (this.settings.touch === true) {
+                    this.$scrollingElement.css({maxWidth: '100%'}).prependTo(this.$imageHolder);
+                } else if (this.settings.parallax === true) {
                     this.$scrollerHolder = $('<div/>', {
                         html: this.$imageHolder.html()
-                    }).css(this._getCSSObject({
-                            transform: transformProperty,
-                            top: 0,
-                            left: 0,
-                            x: 0,
-                            y: 0,
-                            visibility: 'hidden',
-                            position: 'fixed',
-                            overflow: 'hidden'
-                        })).addClass(this.settings.holderClass).prependTo(this.settings.container);
-
+                    }).css({
+                        top: 0,
+                        visibility: 'hidden',
+                        position: 'fixed',
+                        overflow: 'hidden'
+                    }).addClass(this.settings.holderClass).prependTo(this.settings.container);
                     this.$imageHolder.css('visibility', 'hidden').empty();
                     this.$scrollingElement.css({position: 'absolute', visibility: 'hidden', maxWidth: 'none'}).prependTo(this.$scrollerHolder);
                 } else {
@@ -223,16 +217,20 @@
                     this.$scrollingElement.css({position: 'relative', overflow: 'hidden'}).prependTo(this.$imageHolder);
                 }
 
-                if(this.settings.touch === false) {
+                if (this.settings.touch === false) {
                     this._adjustImgHolderHeights();
-                    if(this.settings.parallax === true) {this._updatePositions();}
-                    else {this._updateFallbackPositions();}
+                    if (this.settings.parallax === true) {
+                        this._updatePositions();
+                    }
+                    else {
+                        this._updateFallbackPositions();
+                    }
                     this._bindEvents();
                 }
             },
             _adjustImgHolderHeights: function () {
                 var winHeight = $win.height(),
-                    winWidth = $win.width(),
+                    winWidth = $win.width() - this.settings.container.offset().left,
                     imgHolderHeight = this.coverRatio * winHeight,
                     imgTopPos,
                     imgLeftPos,
@@ -246,7 +244,6 @@
                     imageDiff,
                     adjustedYDiff,
                     holderToWinDiff;
-
                 imgHolderHeight = (this.settings.holderMinHeight < imgHolderHeight ? Math.floor(imgHolderHeight) : this.settings.holderMinHeight) + this.extraHeight;
                 fakedImgHeight = Math.floor(winHeight - (winHeight - imgHolderHeight) * this.settings.speed);
                 imgWidth = Math.round(this.mediaWidth * (fakedImgHeight / this.mediaHeight));
@@ -294,13 +291,13 @@
                 var self = this;
                 $win.on('resize', function (evt) {
                     self._adjustImgHolderHeights();
-                    if(self.settings.parallax === true) {
+                    if (self.settings.parallax === true) {
                         self._requestTick();
                     } else {
                         self._updateFallbackPositions();
                     }
                 });
-                if(this.settings.parallax === true) {
+                if (this.settings.parallax === true) {
                     $win.on('scroll', function (evt) {
                         self.scrollingState.holderDistanceFromTop = self.$imageHolder.offset().top - $win.scrollTop();
                         self._requestTick();
@@ -320,11 +317,13 @@
                 if (this.scrollingState.holderDistanceFromTop <= (this.scrollingState.winHeight) && this.scrollingState.holderDistanceFromTop >= -this.scrollingState.imgHolderHeight) {
                     var distanceFromTopAddedWinHeight = this.scrollingState.holderDistanceFromTop + this.scrollingState.imgHolderHeight,
                         distanceInPercent = distanceFromTopAddedWinHeight / this.scrollingState.travelDistance,
-                        currentImgYPosition = Math.round(this.scrollingState.fromY + (this.scrollingState.imgScrollingDistance * (1 - distanceInPercent)));
+                        currentImgYPosition = Math.round(this.scrollingState.fromY + (this.scrollingState.imgScrollingDistance * (1 - distanceInPercent))),
+                        leftOffset = this.settings.container.offset().left;
 
                     this.$scrollerHolder.css(this._getCSSObject({
                         transform: transformProperty,
-                        x: Math.ceil(this.scrollingState.imgLeftPos),
+                        left: leftOffset,
+                        x: Math.ceil(this.scrollingState.imgLeftPos) + (supportedFeature === '' && leftOffset > 0 ? leftOffset : 0),
                         y: Math.round(this.scrollingState.holderDistanceFromTop),
                         visibility: 'visible'
                     }));
@@ -342,7 +341,7 @@
 
                 this.ticking = false;
             },
-            _updateFallbackPositions: function() {
+            _updateFallbackPositions: function () {
                 this.$scrollerHolder.css({width: '100%'});
                 this.$scrollingElement.css({
                     top: this.scrollingState.imgTopPos,
