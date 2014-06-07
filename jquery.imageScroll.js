@@ -2,8 +2,8 @@
  * Parallax ImageScroll - jQuery plugin
  * Author: Peder A. Nielsen
  * Created date: 04.12.13
- * Updated date: 02.06.14
- * Version: 0.1.3
+ * Updated date: 07.06.14
+ * Version: 0.1.4
  * Company: Making Waves
  * Licensed under the MIT license
  */
@@ -235,17 +235,13 @@
                     imgTopPos,
                     imgLeftPos,
                     fromY,
-                    toY,
                     imgScrollingDistance,
                     travelDistance,
                     imgWidth,
                     imgHeight,
                     fakedImgHeight,
-                    imageDiff,
-                    adjustedYDiff,
-                    holderToWinDiff;
+                    imageDiff;
                 imgHolderHeight = (this.settings.holderMinHeight < imgHolderHeight ? Math.floor(imgHolderHeight) : this.settings.holderMinHeight) + this.extraHeight;
-                if((imgHolderHeight + 2) >= winHeight) {imgHolderHeight = winHeight - 2; }
                 fakedImgHeight = Math.floor(winHeight - (winHeight - imgHolderHeight) * this.settings.speed);
                 imgWidth = Math.round(this.mediaWidth * (fakedImgHeight / this.mediaHeight));
 
@@ -255,15 +251,13 @@
                     imgWidth = winWidth;
                     imgHeight = Math.round(this.mediaHeight * (imgWidth / this.mediaWidth));
                 }
-                imageDiff = (fakedImgHeight - imgHolderHeight) / 2;
-                adjustedYDiff = (imgHeight - fakedImgHeight) / 2;
-                holderToWinDiff = (winHeight - imgHolderHeight) / 2;
-                fromY = -((winHeight / holderToWinDiff) * imageDiff) - adjustedYDiff;
-                toY = ((imgHolderHeight / holderToWinDiff) * imageDiff) - adjustedYDiff;
-                imgScrollingDistance = toY - fromY;
+
+                imageDiff = fakedImgHeight - imgHolderHeight;
                 travelDistance = winHeight + imgHolderHeight;
-                imgTopPos = -(imageDiff + adjustedYDiff);
+                imgScrollingDistance = (((winHeight * 2) * (1 - this.settings.speed)) - imageDiff);
+                imgTopPos = -((imageDiff / 2) + ((imgHeight - fakedImgHeight) / 2));
                 imgLeftPos = Math.round((imgWidth - winWidth) * -0.5);
+                fromY = imgTopPos - (imgScrollingDistance / 2);
 
                 this.$scrollingElement.css({
                     height: imgHeight,
