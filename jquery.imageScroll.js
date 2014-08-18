@@ -230,7 +230,7 @@
             },
             _adjustImgHolderHeights: function () {
                 var winHeight = $win.height(),
-                    winWidth = $win.width() - this.settings.container.offset().left,
+                    winWidth = this.settings.container.width(),
                     imgHolderHeight = this.coverRatio * winHeight,
                     imgTopPos,
                     imgLeftPos,
