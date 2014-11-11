@@ -4,7 +4,7 @@
   "authors": [
     "Peder Andreas Nielsen <peder1976@gmail.com>"
   ],
-  "main": "jquery.imageScroll",
+  "main": "jquery.imageScroll.js",
   "license": "MIT",
   "ignore": [
     "**/.*",
