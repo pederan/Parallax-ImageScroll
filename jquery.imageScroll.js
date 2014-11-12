@@ -28,6 +28,7 @@
             speed: 0.2,
             coverRatio: 0.75,
             holderMinHeight: 200,
+            holderMaxHeight: null,
             extraHeight: 0,
             mediaWidth: 1600,
             mediaHeight: 900,
@@ -242,6 +243,7 @@
                     fakedImgHeight,
                     imageDiff;
                 imgHolderHeight = (this.settings.holderMinHeight < imgHolderHeight ? Math.floor(imgHolderHeight) : this.settings.holderMinHeight) + this.extraHeight;
+                if ((this.settings.holderMaxHeight) && (this.settings.holderMaxHeight < imgHolderHeight)) imgHolderHeight = this.settings.holderMaxHeight;
                 fakedImgHeight = Math.floor(winHeight - (winHeight - imgHolderHeight) * this.settings.speed);
                 imgWidth = Math.round(this.mediaWidth * (fakedImgHeight / this.mediaHeight));
 
