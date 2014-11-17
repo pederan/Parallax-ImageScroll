@@ -1,10 +1,10 @@
 /**
  * Parallax ImageScroll - jQuery plugin
  * Author: Peder A. Nielsen
+ * Updated by: Markus Manuél Emberger
  * Created date: 04.12.13
- * Updated date: 07.06.14
- * Version: 0.1.4
- * Company: Making Waves
+ * Updated date: 17.11.14
+ * Version: 0.1.5
  * Licensed under the MIT license
  */
 ;
@@ -32,7 +32,10 @@
             mediaWidth: 1600,
             mediaHeight: 900,
             parallax: true,
-            touch: false
+            touch: false,
+            /* Zusätzliche Maximalgröße hinzufügen 17.11.2011 START */
+            holderMaxHeight: 500
+            /* Zusätzliche Maximalgröße hinzufügen 17.11.2011 ENDE */
         },
         ImageScrollModernizr = {},
         docElement = document.documentElement,
@@ -189,6 +192,12 @@
                 this.mediaHeight = this.$imageHolder.data('height') || this.settings.mediaHeight;
                 this.coverRatio = this.$imageHolder.data('cover-ratio') || this.settings.coverRatio;
                 this.extraHeight = this.$imageHolder.data('extra-height') || this.settings.extraHeight;
+                
+                /* Minimum- und Maximumgröße zusätzlich als Bildattribute erlauben 17.11.2014 START */
+                this.holderMinHeight = this.$imageHolder.data('min-height') || this.settings.holderMinHeight;
+           		this.holderMaxHeight = this.$imageHolder.data('max-height') || this.settings.holderMaxHeight;
+                /* Minimum- und Maximumgröße zusätzlich als Bildattribute erlauben 17.11.2014 START */
+                
                 this.ticking = false;
 
                 if (this.image) {
@@ -241,7 +250,14 @@
                     imgHeight,
                     fakedImgHeight,
                     imageDiff;
-                imgHolderHeight = (this.settings.holderMinHeight < imgHolderHeight ? Math.floor(imgHolderHeight) : this.settings.holderMinHeight) + this.extraHeight;
+                imgHolderHeight = (this.holderMinHeight < imgHolderHeight ? Math.floor(imgHolderHeight) : this.holderMinHeight);
+                
+                /* Zusätzliche Maximalgröße hinzufügen 17.11.2011 START */
+                this.holderMaxHeight = (this.holderMaxHeight < this.holderMinHeight ? this.holderMinHeight : this.holderMaxHeight);
+                imgHolderHeight = (this.holderMaxHeight > imgHolderHeight ? imgHolderHeight : this.holderMaxHeight);
+                imgHolderHeight = imgHolderHeight + this.extraHeight;
+                /* Zusätzliche Maximalgröße hinzufügen 17.11.2011 ENDE */
+               
                 fakedImgHeight = Math.floor(winHeight - (winHeight - imgHolderHeight) * this.settings.speed);
                 imgWidth = Math.round(this.mediaWidth * (fakedImgHeight / this.mediaHeight));
 
