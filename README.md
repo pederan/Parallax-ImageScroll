@@ -67,6 +67,7 @@ Configurable options:
 * ```speed: 0.2``` The speed of the parallax effect. A floating number between 0 and 1, where a higher number will move the images faster upwards
 * ```coverRatio: 0.75 //75%``` How many percent of the screen each image should cover
 * ```holderClass: 'imageHolder'``` Class added to the image holder(s)
+* ```imgClass: 'img-holder-img'``` Class added to the image
 * ```holderMinHeight: 200``` The minimum height of the image in pixels
 * ```holderMaxHeight: null``` The maximum height of the image in pixels
 * ```extraHeight: 0``` Extra height added to the image. Can be useful if you want to show more of the top image
