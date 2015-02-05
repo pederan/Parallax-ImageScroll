@@ -31,8 +31,10 @@ The plugin is AMD compatible. To use with e.g. RequireJS, you can do this. See d
 ```javascript
 require(['jquery.imageScroll'], function (ImageScroll) {
     $('.img-holder').each(function () {
-        new ImageScroll(this).init();
+        new ImageScroll(this);
     });
+    //or
+    //$('.img-holder').imageScroll();
 });
 ```
 
@@ -45,34 +47,62 @@ $('.img-holder').imageScroll({
 });
 ```
 
-or set the options via data attributes, data-*optionname* (available options: image, width (mediaWidth), height (mediaHeight), cover-ratio (coverRatio), extra-height (extraHeight)
+or set the options via data attributes, data-*optionname* (available options: image, width (mediaWidth), height (mediaHeight), cover-ratio (coverRatio), min-height (holderMinHeight), max-height (holderMaxHeight), extra-height (extraHeight)
 ```html
 <div class="img-holder" data-image="anImage.jpg" data-cover-ratio="0.5"></div>
 ```
 
-or set the options globally (only works when using with amd)
+or set the options globally
 ```javascript
+$.fn.imageScroll.defaults.coverRatio = 0.5;
+//AMD
 ImageScroll.defaults.coverRatio = 0.5;
 ```
 
-Configurable options are:
-* ```image: null``` (**required**) The image to show
+Configurable options:
+* ```image: null``` : The image to show (best to set this option via data attr (data-img)
 * ```imageAttribute: 'image'```: The data attribute name for images. Uses the value of this attribute to load the image
 * ```container: $('body')``` The element to which the parallax image(s) will be attached to
+* ```windowObject: $(window)``` The window object which listens to scroll and resize events
 * ```speed: 0.2``` The speed of the parallax effect. A floating number between 0 and 1, where a higher number will move the images faster upwards
 * ```coverRatio: 0.75 //75%``` How many percent of the screen each image should cover
 * ```holderClass: 'imageHolder'``` Class added to the image holder(s)
 * ```holderMinHeight: 200``` The minimum height of the image in pixels
+* ```holderMaxHeight: null``` The maximum height of the image in pixels
 * ```extraHeight: 0``` Extra height added to the image. Can be useful if you want to show more of the top image
 * ```mediaWidth: 1600``` The original width of the image
 * ```mediaHeight: 900``` The original height of the image
 * ```parallax: true``` Whether or not you want the parallax effect, e.g. does not work very well in ancient browsers
 * ```touch: false``` Presents a mobile/tablet friendy version, no parallax effect and smaller images (should be used with a mobile/tablet optimized images)
 
+Public methods:
+* ```disable()```
+* ```enable()```
+* ```refresh()```
+* ```destroy()```
+
+You can call them on individual- or all the instances.
+```javascript
+//Call method refresh on all the instances of the plugin
+var instances = $('.img-holder');
+instances.imageScroll('refresh');
+
+//E.g. Call method refresh on the first image
+//Alternative 1:
+var instances = $('.img-holder');
+var instance = $(instances.get(0));
+instance.imageScroll('disable');
+
+//Alternative 2:
+var instances = $('.img-holder');
+var instance = $(instances.get(0)).data('plugin_imageScroll');
+instances.refresh();
+
+```
 
 ### Touch
 
-The effect is not very smooth on a touch device. You could therefore present the user with a fallback version, which displays the images with no parallax effect. You can do so by checking for touch (e.g. with Modernizr) and set dynamic options to adjust to this.
+The effect is not very smooth on a touch device. You could therefore present the user with a fallback version, which displays the images with no parallax effect. You can do so by checking for touch (e.g. with Modernizr, external lib) and set dynamic options to adjust to this.
 ```javascript
 var touch = Modernizr.touch;
 $('.img-holder').imageScroll({
