@@ -92,12 +92,12 @@ instances.imageScroll('refresh');
 //Alternative 1:
 var instances = $('.img-holder');
 var instance = $(instances.get(0));
-instance.imageScroll('disable');
+instance.imageScroll('refresh');
 
 //Alternative 2:
 var instances = $('.img-holder');
 var instance = $(instances.get(0)).data('plugin_imageScroll');
-instances.refresh();
+instance.refresh();
 
 ```
 
