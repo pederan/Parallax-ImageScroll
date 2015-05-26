@@ -17,6 +17,8 @@
     },
     "description": "Parallax ImageScroll is a simple and easy jQuery plugin for creating image parallax effects when scrolling the page, inspired by Spotify.com.",
     "keywords": [
+        "jquery-plugin",
+        "ecosystem:jquery",
         "parallax",
         "scroll",
         "effect",
@@ -24,7 +26,6 @@
         "css3"
     ],
     "homepage": "https://github.com/pederan/Parallax-ImageScroll",
-    "docs": "https://github.com/pederan/Parallax-ImageScroll",
-    "demo": "http://codepen.io/pederan/full/Hheuy",
+    "repository": "https://github.com/pederan/Parallax-ImageScroll",
     "bugs": "https://github.com/pederan/Parallax-ImageScroll/issues"
 }

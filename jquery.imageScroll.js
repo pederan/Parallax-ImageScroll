@@ -1,9 +1,10 @@
 /**
  * Parallax ImageScroll - jQuery plugin
  * Author: Peder A. Nielsen
+ * Email: peder1976@gmail.com
  * Created date: 04.12.13
- * Updated date: 05.02.15
- * Version: 0.2.0
+ * Updated date: 26.05.15
+ * Version: 0.2.1
  * Company: Making Waves
  * Licensed under the MIT license
  */
@@ -55,7 +56,6 @@
         supportedFeature = '',
         transformProperty,
         injectElementWithStyles = function (rule, callback, nodes, testnames) {
-
             var style, ret, node, docOverflow,
                 div = document.createElement('div'),
                 body = document.body,
@@ -90,7 +90,6 @@
             }
 
             return !!ret;
-
         };
 
     function is(obj, type) {
@@ -203,7 +202,7 @@
         this._defaults = defaults;
         this._name = pluginName;
         this.init();
-    }
+    };
 
     // Avoid Plugin.prototype conflicts
     $.extend(Plugin.prototype, {

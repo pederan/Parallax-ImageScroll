@@ -119,6 +119,11 @@ Install using bower
 bower install Parallax-ImageScroll
 ```
 
+Install using npm
+```sh
+npm install parallax-imagescroll
+```
+
 ### Requirements
 
 jQuery version 1.8.0 or higher
