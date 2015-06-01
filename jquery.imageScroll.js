@@ -11,7 +11,13 @@
 ;
 (function (root, factory) {
     if (typeof define === 'function' && define.amd) {
+        // AMD
         define(['jquery'], factory);
+    } else if (typeof module === 'object' && typeof module.exports === 'object') {
+        // CommonJS
+        module.exports = factory(
+            require('jquery')
+        );
     } else {
         factory(root.jQuery);
     }

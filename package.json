@@ -2,6 +2,7 @@
     "name": "parallax-imagescroll",
     "version": "0.2.1",
     "title": "Parallax ImageScroll",
+    "main": "./jquery.imageScroll.js",
     "author": {
         "name": "Peder Andreas Nielsen",
         "email": "peder1976@gmail.com"
