@@ -3,8 +3,8 @@
  * Author: Peder A. Nielsen
  * Email: peder1976@gmail.com
  * Created date: 04.12.13
- * Updated date: 26.05.15
- * Version: 0.2.1
+ * Updated date: 30.06.15
+ * Version: 0.2.2
  * Company: Making Waves
  * Licensed under the MIT license
  */
