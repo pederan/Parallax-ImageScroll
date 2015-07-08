@@ -3,8 +3,8 @@
  * Author: Peder A. Nielsen
  * Email: peder1976@gmail.com
  * Created date: 04.12.13
- * Updated date: 30.06.15
- * Version: 0.2.2
+ * Updated date: 08.07.15
+ * Version: 0.2.3
  * Company: Making Waves
  * Licensed under the MIT license
  */
@@ -236,6 +236,8 @@
                 this.$imageHolder.css('visibility', 'hidden').empty();
                 this.$scrollingElement.css({
                     position: 'absolute',
+                    top: 0,
+                    left: 0,
                     visibility: 'hidden',
                     maxWidth: 'none'
                 }).prependTo(this.$scrollerHolder);
@@ -373,6 +375,8 @@
                 options.top = options.y;
                 options.left = options.x;
             }
+            delete options.x;
+            delete options.y;
             return options;
         },
         enable: function () {

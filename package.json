@@ -1,6 +1,6 @@
 {
     "name": "parallax-imagescroll",
-    "version": "0.2.2",
+    "version": "0.2.3",
     "title": "Parallax ImageScroll",
     "main": "./jquery.imageScroll.js",
     "author": {
