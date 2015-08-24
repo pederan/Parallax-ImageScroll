@@ -40,7 +40,8 @@
             mediaWidth: 1600,
             mediaHeight: 900,
             parallax: true,
-            touch: false
+            touch: false,
+            title: 'title'
         },
         pluginName = 'imageScroll',
         dataKey = "plugin_" + pluginName,
@@ -196,6 +197,7 @@
         this.$imageHolder = $(imageHolder);
         this.settings = $.extend({}, defaults, options);
         this.image = this.$imageHolder.data(this.settings.imageAttribute) || this.settings.image;
+        this.title = this.$imageHolder.data(this.settings.title) || this.settings.title;
         this.mediaWidth = this.$imageHolder.data('width') || this.settings.mediaWidth;
         this.mediaHeight = this.$imageHolder.data('height') || this.settings.mediaHeight;
         this.coverRatio = this.$imageHolder.data('cover-ratio') || this.settings.coverRatio;
@@ -215,8 +217,16 @@
         constructor: Plugin,
         init: function () {
             if (this.image) {
+
+                //get the alt tag based on the title
+                var altTag = '';
+                if (this.title) {
+                    altTag = this.title;
+                }
+
                 this.$scrollingElement = $('<img/>', {
-                    src: this.image
+                    src: this.image,
+                    alt: altTag
                 }).addClass(this.settings.imgClass);
             } else {
                 throw new Error('You need to provide either a data-img attr or an image option');
