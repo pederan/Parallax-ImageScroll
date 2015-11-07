@@ -216,7 +216,8 @@
         init: function () {
             if (this.image) {
                 this.$scrollingElement = $('<img/>', {
-                    src: this.image
+                    src: this.image,
+                    role: 'presentation'
                 }).addClass(this.settings.imgClass);
             } else {
                 throw new Error('You need to provide either a data-img attr or an image option');
